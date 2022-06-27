@@ -1,11 +1,7 @@
-import { useRouter } from 'next/router';
 import React from 'react'
 function Post({post}) {
   const router = useRouter();
 
-  if(router.isFallback) {
-    return <>loading...</>
-  }
   return (
     <div>
       <h2>{post?.id} {post?.title}</h2>
@@ -44,9 +40,8 @@ export const getStaticPaths = async () => {
           postId: `3`
         }
       }
-      
     ],
-    fallback: true // if fallback is true then any paths that not returned from paths key in getStaticPaths will be request from the server to make api call and will fetch and added to the static folder
+    fallback: "blocking" // if fallback is block then any paths that not returned from paths key in getStaticPaths will be request from the server to make api call and will fetch and added to the static folder but without a loading or fallback ui
   }
 }
 
