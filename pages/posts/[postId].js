@@ -40,7 +40,7 @@ export const getStaticPaths = async () => {
       }
       
     ],
-    fallback: false
+    fallback: false // if fallback is false then any paths that not returned from paths key in getStaticPaths will result to error 404 page
   }
 }
 
