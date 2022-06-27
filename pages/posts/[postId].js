@@ -1,5 +1,11 @@
+import { useRouter } from 'next/router';
 import React from 'react'
 function Post({post}) {
+  const router = useRouter();
+
+  if(router.isFallback) {
+    return <>loading...</>
+  }
   return (
     <div>
       <h2>{post?.id} {post?.title}</h2>
@@ -40,7 +46,7 @@ export const getStaticPaths = async () => {
       }
       
     ],
-    fallback: false // if fallback is false then any paths that not returned from paths key in getStaticPaths will result to error 404 page
+    fallback: true // if fallback is true then any paths that not returned from paths key in getStaticPaths will be request from the server to make api call and will fetch and added to the static folder
   }
 }
 
@@ -51,6 +57,11 @@ export const getStaticProps = async (context) => {
 
   const data = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`).then(res => res.json());
   
+  if(!data.id) {
+    return {
+      notFound: true // if the postId doesnt found in httpRequest we will throw a notFound Page
+    }
+  }
   return {
     props: {
       post: data
