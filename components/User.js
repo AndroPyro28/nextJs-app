@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 
-function User({ data }) {
-  const [user, setUser] = useState();
+function User({ user }) {
+  // const [user, setUser] = useState();
 
-  useEffect(() => {
-    (() => {
-      setUser(data);
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (() => {
+  //     setUser(data);
+  //   })();
+  // }, []);
 
   return (
     <section>

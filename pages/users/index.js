@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react'
+// import React, { useEffect, useState } from 'react'
 import User from '../../components/User';
 
 function index({data}) {
-    const [users, setUsers] = useState([]);
+    // const [users, setUsers] = useState([]);
 
-    useEffect(() => {
-        (async () => {
-            setUsers(data);
-        })();
-    }, [])
+    // useEffect(() => {
+    //     (async () => {
+    //         setUsers(data);
+    //     })();
+    // }, [])
 
   return (
     <div>
         <h1>List of users</h1>
-        {users?.length > 0 && users.map((user) => {
-           return <User data={user} key={user.id} />
+        {data?.length > 0 && data.map((user) => {
+           return <User user={user} key={user.id} />
         })}
     </div>
   )
