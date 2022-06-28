@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-function index({ eventList }) {
+function Index({ eventList }) {
   const [Events, setEventList] = useState(eventList);
   const router = useRouter();
 
@@ -31,7 +31,7 @@ function index({ eventList }) {
   );
 }
 
-export default index;
+export default Index;
 
 export const getServerSideProps = async ({ query }) => {
   const { category } = query;

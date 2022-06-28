@@ -1,4 +1,4 @@
-function index({ articles }) {
+function Index({ articles }) {
   return (
     <div>
       <h2>List of news articles</h2>
@@ -12,7 +12,7 @@ function index({ articles }) {
   );
 }
 
-export default index;
+export default Index;
 
 export const getServerSideProps = async () => {
   const data = await fetch("http://localhost:4000/news").then((res) =>

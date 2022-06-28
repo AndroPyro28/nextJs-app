@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import useSwr from "swr";
-function index() {
+function Index() {
   const fetcher = async () => {
     const data = await fetch("http://localhost:4000/dashboard").then((res) =>
       res.json()
@@ -31,4 +31,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;
