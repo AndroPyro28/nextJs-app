@@ -1,6 +1,5 @@
 import React from 'react'
 function Post({post}) {
-  const router = useRouter();
 
   return (
     <div>

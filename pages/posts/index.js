@@ -1,20 +1,20 @@
 import React from "react";
-import { useRouter } from "next/router";
+import Link from "next/link";
 function PostList({ posts }) {
   const router = useRouter();
-
-  const handleNavigate = (id) => {
-    router.push(`/posts/${id}`);
-  };
 
   return (
     <div>
       <h1>List of posts</h1>
       {posts.map((post, index) => {
         return (
-          <div key={post.id} onClick={() => handleNavigate(post.id)}>
-            {post.id} {post.title}
-          </div>
+          <Link href={`/posts/${post.id}`} key={post.id}>
+            <a>
+              <div  onClick={() => handleNavigate(post.id)}>
+                {post.id} {post.title}
+              </div>
+            </a>
+          </Link>
         );
       })}
     </div>
@@ -22,8 +22,6 @@ function PostList({ posts }) {
 }
 
 export default PostList;
-
-
 
 export const getStaticProps = async () => {
   const data = await fetch("https://jsonplaceholder.typicode.com/posts").then(
